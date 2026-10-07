@@ -10,6 +10,13 @@ The project is independent from the legacy `/root/metatrader` project.
 
 ## 1. Installation
 
+### One-line installation
+
+```bash
+cd /root/xauusd_data_layer && python3 -m venv .venv && /root/xauusd_data_layer/.venv/bin/pip install -r requirements.txt && /root/xauusd_data_layer/.venv/bin/python -c "from app.database import initialize; initialize()"
+```
+
+
 Project path:
 
 ```text
