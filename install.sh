@@ -89,4 +89,35 @@ echo "==> API health check"
 curl -fsS http://127.0.0.1:8000/health
 echo
 
+echo "==> Data pipeline check"
+"${VENV_DIR}/bin/python" - <<'PYTHON'
+import time
+
+from app.database import get_latest_candle
+
+candle = get_latest_candle()
+
+if candle is None:
+    raise SystemExit("ERROR: No candle found in SQLite.")
+
+age = int(time.time()) - int(candle["time"])
+
+print(
+    f"Latest candle: time={candle['time']} "
+    f"close={candle['close']} age={age}s"
+)
+
+if age < 0:
+    raise SystemExit("ERROR: Latest candle timestamp is in the future.")
+
+if age > 120:
+    raise SystemExit(
+        f"ERROR: Latest candle is too old ({age}s). "
+        "Collector may not be receiving current market data."
+    )
+
+print("Data pipeline: OK")
+PYTHON
+
+echo
 echo "XAUUSD Data Layer is ready."
