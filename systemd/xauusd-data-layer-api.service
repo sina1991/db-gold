@@ -1,0 +1,14 @@
+[Unit]
+Description=XAUUSD Data Layer API
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/xauusd_data_layer
+ExecStart=/root/xauusd_data_layer/.venv/bin/uvicorn app.api.main:app --host 0.0.0.0 --port 8000
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,15 @@
+[Unit]
+Description=XAUUSD Data Layer Collector
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/xauusd_data_layer
+ExecStart=/root/xauusd_data_layer/.venv/bin/python -m app.bootstrap.collector_runtime
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
