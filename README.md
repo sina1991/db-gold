@@ -472,7 +472,6 @@ xauusd_data_layer/
 ├── archive/
 ├── data/
 │   └── xauusd.db
-├── tests/
 ├── .gitignore
 ├── README.md
 └── requirements.txt

@@ -24,8 +24,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "96c0409d7a9ea2f7c811c7c5455c898d2d1c60b402699db8470e152480b39710",
-      "bytes": 12594
+      "sha256": "1fb28d5c1774a23a5e81bdb0772a144b9cb77fa059bf5ce9619fca83f9af38c0",
+      "bytes": 12577
     },
     {
       "path": "app/__init__.py",
@@ -89,8 +89,8 @@
     },
     {
       "path": "docs/agent/architecture.md",
-      "sha256": "8326f6f96869dd004359b72602e88f74b3622852bf98d05905c5bd2c766e4674",
-      "bytes": 1671
+      "sha256": "63341a0fff51e2b96af756085b726998521e1ebc3aa3202870c9727c77aee407",
+      "bytes": 2151
     },
     {
       "path": "docs/agent/contracts.md",

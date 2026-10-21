@@ -1,8 +1,19 @@
 # Architecture
 
 ## Data flow
+`CollectorRuntime` owns the polling loop. On each iteration it calls
+`CollectorService.collect_latest_closed()`.
+
+The data path is:
+
 Biquote HTTP API -> `BiquoteClient` -> `CollectorService`
--> `CollectorRuntime` -> SQLite `candles` table -> FastAPI consumers.
+-> SQLite `candles` table -> FastAPI consumers.
+
+`CollectorService` requests OHLC bars through `BiquoteClient`, filters
+for closed bars, converts them into the internal candle format, and persists
+them through `upsert_candle`. `CollectorRuntime` handles iteration errors
+and waits for the configured polling interval. The FastAPI API reads stored
+candles; it does not fetch current market data directly from Biquote.
 
 The collector polls every `COLLECTOR_POLL_SECONDS` (configured as 5).
 It stores closed bars; `upsert_candle` inserts or updates by candle timestamp.
