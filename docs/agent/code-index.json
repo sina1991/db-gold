@@ -573,8 +573,8 @@
     },
     {
       "path": "scripts/check_agent_docs.py",
-      "sha256": "17b44a1fdbef88c183eaafa0d9f368625746c810a95a45089c1c37371721f31b",
-      "bytes": 3039,
+      "sha256": "fb4df3baa0342bd6d1598c5b7a49a26a95d40e64625e3ad7f4d483efd892aaff",
+      "bytes": 3100,
       "parse_error": null,
       "imports": [
         "hashlib",
@@ -617,7 +617,7 @@
           "name": "manifest_files",
           "kind": "function",
           "line_start": 26,
-          "line_end": 38,
+          "line_end": 41,
           "signature": "manifest_files()",
           "returns": null,
           "doc": null,
@@ -634,8 +634,8 @@
         {
           "name": "compare",
           "kind": "function",
-          "line_start": 40,
-          "line_end": 50,
+          "line_start": 43,
+          "line_end": 53,
           "signature": "compare(label, expected, actual)",
           "returns": null,
           "doc": null,
@@ -649,8 +649,8 @@
         {
           "name": "main",
           "kind": "function",
-          "line_start": 52,
-          "line_end": 85,
+          "line_start": 55,
+          "line_end": 88,
           "signature": "main()",
           "returns": null,
           "doc": null,
@@ -674,11 +674,75 @@
       ]
     },
     {
-      "path": "scripts/generate_agent_docs.py",
-      "sha256": "12dfa59da217c2433a85c8bb7113e8b29872852040f00b9f141ab5bd099aefe0",
-      "bytes": 5600,
+      "path": "scripts/check_doc_review.py",
+      "sha256": "b655f00333574246b018875d245b685ab1214889f16c47208eff3e6192e526fd",
+      "bytes": 2545,
       "parse_error": null,
       "imports": [
+        "argparse",
+        "subprocess",
+        "sys"
+      ],
+      "symbols": [
+        {
+          "name": "changed_files",
+          "kind": "function",
+          "line_start": 29,
+          "line_end": 42,
+          "signature": "changed_files(base=None)",
+          "returns": null,
+          "doc": null,
+          "calls": [
+            "SystemExit",
+            "print",
+            "result.stderr.strip",
+            "result.stdout.splitlines",
+            "set",
+            "sorted",
+            "subprocess.run"
+          ]
+        },
+        {
+          "name": "matches",
+          "kind": "function",
+          "line_start": 45,
+          "line_end": 49,
+          "signature": "matches(path, patterns)",
+          "returns": null,
+          "doc": null,
+          "calls": [
+            "any",
+            "path.startswith"
+          ]
+        },
+        {
+          "name": "main",
+          "kind": "function",
+          "line_start": 52,
+          "line_end": 97,
+          "signature": "main()",
+          "returns": null,
+          "doc": null,
+          "calls": [
+            "RULES.items",
+            "argparse.ArgumentParser",
+            "changed_files",
+            "matches",
+            "parser.add_argument",
+            "parser.parse_args",
+            "path.startswith",
+            "print"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "scripts/generate_agent_docs.py",
+      "sha256": "5430c01bfb6dbe300e39e045943607561249b1b36874c4ef87c6424e8534a1e3",
+      "bytes": 6549,
+      "parse_error": null,
+      "imports": [
+        "argparse",
         "ast",
         "hashlib",
         "json",
@@ -688,8 +752,8 @@
         {
           "name": "sha256",
           "kind": "function",
-          "line_start": 13,
-          "line_end": 14,
+          "line_start": 14,
+          "line_end": 15,
           "signature": "sha256(data)",
           "returns": null,
           "doc": null,
@@ -701,8 +765,8 @@
         {
           "name": "source_files",
           "kind": "function",
-          "line_start": 16,
-          "line_end": 25,
+          "line_start": 17,
+          "line_end": 26,
           "signature": "source_files()",
           "returns": null,
           "doc": null,
@@ -718,8 +782,8 @@
         {
           "name": "manifest_files",
           "kind": "function",
-          "line_start": 27,
-          "line_end": 43,
+          "line_start": 28,
+          "line_end": 47,
           "signature": "manifest_files()",
           "returns": null,
           "doc": null,
@@ -734,10 +798,27 @@
           ]
         },
         {
+          "name": "write_output",
+          "kind": "function",
+          "line_start": 50,
+          "line_end": 60,
+          "signature": "write_output(path, content, check)",
+          "returns": null,
+          "doc": null,
+          "calls": [
+            "path.is_file",
+            "path.parent.mkdir",
+            "path.read_text",
+            "path.relative_to",
+            "path.write_text",
+            "print"
+          ]
+        },
+        {
           "name": "imports_for",
           "kind": "function",
-          "line_start": 45,
-          "line_end": 52,
+          "line_start": 62,
+          "line_end": 69,
           "signature": "imports_for(tree)",
           "returns": null,
           "doc": null,
@@ -753,8 +834,8 @@
         {
           "name": "calls_for",
           "kind": "function",
-          "line_start": 54,
-          "line_end": 71,
+          "line_start": 71,
+          "line_end": 88,
           "signature": "calls_for(node)",
           "returns": null,
           "doc": null,
@@ -772,8 +853,8 @@
         {
           "name": "describe_node",
           "kind": "function",
-          "line_start": 73,
-          "line_end": 105,
+          "line_start": 90,
+          "line_end": 122,
           "signature": "describe_node(node, parent=None)",
           "returns": null,
           "doc": null,
@@ -790,18 +871,16 @@
         {
           "name": "main",
           "kind": "function",
-          "line_start": 107,
-          "line_end": 172,
+          "line_start": 124,
+          "line_end": 198,
           "signature": "main()",
           "returns": null,
           "doc": null,
           "calls": [
             "MANIFEST.relative_to",
-            "MANIFEST.write_text",
-            "OUTPUT.parent.mkdir",
             "OUTPUT.relative_to",
-            "OUTPUT.write_text",
             "SystemExit",
+            "argparse.ArgumentParser",
             "as_posix",
             "ast.parse",
             "describe_node",
@@ -811,13 +890,16 @@
             "len",
             "manifest.append",
             "manifest_files",
+            "parser.add_argument",
+            "parser.parse_args",
             "path.read_bytes",
             "path.relative_to",
             "print",
             "s.get",
             "sha256",
             "source_files",
-            "sum"
+            "sum",
+            "write_output"
           ]
         }
       ]

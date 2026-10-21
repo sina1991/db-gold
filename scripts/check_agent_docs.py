@@ -32,7 +32,10 @@ def manifest_files():
         p = ROOT / name
         if p.is_file():
             paths.append(p)
-    for pattern in ("systemd/*.service", "docs/agent/*.md"):
+    for pattern in (
+        "systemd/*.service", "docs/agent/*.md",
+        ".githooks/*", ".github/workflows/*",
+    ):
         paths.extend(ROOT.glob(pattern))
     paths.extend(python_files())
     return sorted(set(p for p in paths if p.is_file()))

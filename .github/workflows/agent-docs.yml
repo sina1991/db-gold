@@ -1,0 +1,54 @@
+name: Agent Documentation
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Regenerate and verify documentation indexes
+        run: |
+          python scripts/generate_agent_docs.py
+          python scripts/check_agent_docs.py
+
+      - name: Verify generated files are committed
+        run: |
+          git diff --exit-code -- \
+            docs/agent/code-index.json \
+            docs/agent/source-manifest.json
+
+      - name: Report documentation review requirements
+        if: always()
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            python scripts/check_doc_review.py \
+              --base "${{ github.event.pull_request.base.sha }}"
+          elif [ "${{ github.event_name }}" = "push" ]; then
+            BEFORE="${{ github.event.before }}"
+            if [ "$BEFORE" != "0000000000000000000000000000000000000000" ]; then
+              python scripts/check_doc_review.py --base "$BEFORE"
+            elif git rev-parse --verify HEAD^ >/dev/null 2>&1; then
+              python scripts/check_doc_review.py --base HEAD^
+            else
+              python scripts/check_doc_review.py
+            fi
+          else
+            python scripts/check_doc_review.py
+          fi

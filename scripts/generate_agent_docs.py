@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Generate Python symbol index and hashes for key project files."""
+import argparse
 import ast
 import hashlib
 import json
@@ -35,12 +36,28 @@ def manifest_files():
         if p.is_file():
             paths.append(p)
 
-    for pattern in ("systemd/*.service", "docs/agent/*.md"):
+    for pattern in (
+        "systemd/*.service", "docs/agent/*.md",
+        ".githooks/*", ".github/workflows/*",
+    ):
         paths.extend(ROOT.glob(pattern))
 
     # Track code/tool changes as well as deployment and documentation changes.
     paths.extend(source_files())
     return sorted(set(p for p in paths if p.is_file()))
+
+
+def write_output(path, content, check):
+    if check:
+        if not path.is_file() or path.read_text(encoding="utf-8") != content:
+            print(f"STALE: {path.relative_to(ROOT)}")
+            return False
+        print(f"OK: {path.relative_to(ROOT)} is up to date.")
+        return True
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(content, encoding="utf-8")
+    return True
 
 def imports_for(tree):
     result = []
@@ -105,6 +122,16 @@ def describe_node(node, parent=None):
     return item
 
 def main():
+    parser = argparse.ArgumentParser(
+        description="Generate or check the Agent documentation indexes."
+    )
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="Check generated files without modifying them.",
+    )
+    args = parser.parse_args()
+
     indexed = []
     errors = 0
     for path in source_files():
@@ -132,15 +159,12 @@ def main():
             "symbols": symbols,
         })
 
-    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT.write_text(
-        json.dumps({
-            "format_version": 1,
-            "purpose": "Python source navigation index; source code remains authoritative.",
-            "files": indexed,
-        }, indent=2, ensure_ascii=False) + "\n",
-        encoding="utf-8",
-    )
+    index_text = json.dumps({
+        "format_version": 1,
+        "purpose": "Python source navigation index; source code remains authoritative.",
+        "files": indexed,
+    }, indent=2, ensure_ascii=False) + "\n"
+    index_ok = write_output(OUTPUT, index_text, args.check)
 
     manifest = []
     for path in manifest_files():
@@ -150,14 +174,12 @@ def main():
             "sha256": sha256(raw),
             "bytes": len(raw),
         })
-    MANIFEST.write_text(
-        json.dumps({
-            "format_version": 1,
-            "purpose": "Hashes of key source, deployment, and handbook files.",
-            "files": manifest,
-        }, indent=2, ensure_ascii=False) + "\n",
-        encoding="utf-8",
-    )
+    manifest_text = json.dumps({
+        "format_version": 1,
+        "purpose": "Hashes of key source, deployment, and handbook files.",
+        "files": manifest,
+    }, indent=2, ensure_ascii=False) + "\n"
+    manifest_ok = write_output(MANIFEST, manifest_text, args.check)
 
     symbols = sum(
         len(f["symbols"]) + sum(len(s.get("methods", [])) for s in f["symbols"])
@@ -169,6 +191,10 @@ def main():
     print(f"Parse errors: {errors}")
     print(f"Outputs: {OUTPUT.relative_to(ROOT)}, {MANIFEST.relative_to(ROOT)}")
     if errors:
+        raise SystemExit(1)
+    if args.check and not (index_ok and manifest_ok):
+        print("STALE: regenerate indexes and review handbook prose.")
+        print("Run: .venv/bin/python scripts/generate_agent_docs.py")
         raise SystemExit(1)
 
 if __name__ == "__main__":

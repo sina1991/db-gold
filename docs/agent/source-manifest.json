@@ -3,6 +3,16 @@
   "purpose": "Hashes of key source, deployment, and handbook files.",
   "files": [
     {
+      "path": ".githooks/pre-commit",
+      "sha256": "1837d16684a33beea63b1c2f76045cdbe2da04c3a72d2f52d62e175d31278c32",
+      "bytes": 547
+    },
+    {
+      "path": ".github/workflows/agent-docs.yml",
+      "sha256": "290e72410c96db39f4e309ca09b27b1d596d20ea8222d1c3b54e9dea75a88e82",
+      "bytes": 1556
+    },
+    {
       "path": ".gitignore",
       "sha256": "1eddbf307d3179416255704a85b1ed9c8487c4ab670b43e2df3be3e77cc784bd",
       "bytes": 73
@@ -104,13 +114,18 @@
     },
     {
       "path": "scripts/check_agent_docs.py",
-      "sha256": "17b44a1fdbef88c183eaafa0d9f368625746c810a95a45089c1c37371721f31b",
-      "bytes": 3039
+      "sha256": "fb4df3baa0342bd6d1598c5b7a49a26a95d40e64625e3ad7f4d483efd892aaff",
+      "bytes": 3100
+    },
+    {
+      "path": "scripts/check_doc_review.py",
+      "sha256": "b655f00333574246b018875d245b685ab1214889f16c47208eff3e6192e526fd",
+      "bytes": 2545
     },
     {
       "path": "scripts/generate_agent_docs.py",
-      "sha256": "12dfa59da217c2433a85c8bb7113e8b29872852040f00b9f141ab5bd099aefe0",
-      "bytes": 5600
+      "sha256": "5430c01bfb6dbe300e39e045943607561249b1b36874c4ef87c6424e8534a1e3",
+      "bytes": 6549
     },
     {
       "path": "systemd/xauusd-data-layer-api.service",

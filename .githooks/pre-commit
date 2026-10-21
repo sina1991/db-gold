@@ -1,0 +1,28 @@
+#!/bin/sh
+set -eu
+
+ROOT=$(git rev-parse --show-toplevel)
+cd "$ROOT"
+
+PYTHON=$(command -v python3)
+TMP_ROOT=$(mktemp -d)
+
+cleanup() {
+    rm -rf "$TMP_ROOT"
+}
+trap cleanup EXIT HUP INT TERM
+
+echo "Checking staged Agent documentation snapshot..."
+
+# Materialize the Git Index, not the working tree.
+git checkout-index --all --prefix="$TMP_ROOT/"
+
+cd "$TMP_ROOT"
+
+"$PYTHON" scripts/generate_agent_docs.py --check
+"$PYTHON" scripts/check_agent_docs.py
+
+cd "$ROOT"
+
+echo "Reviewing staged documentation impact..."
+"$PYTHON" scripts/check_doc_review.py
