@@ -14,7 +14,7 @@ def sha256(path):
 
 def python_files():
     result = []
-    for folder in ("app", "scripts"):
+    for folder in ("app", "scripts", "tests"):
         base = ROOT / folder
         if base.exists():
             result.extend(

@@ -19,13 +19,13 @@
     },
     {
       "path": "AGENTS.md",
-      "sha256": "b8dcb76c0ce3ea1f4bad61b000ce534bb5eb0c929693d764fe11d402ca446375",
-      "bytes": 2167
+      "sha256": "26eb9991f43a46009da90b63e47df8e513752f03f1d16432aaa8e548a963bf84",
+      "bytes": 2330
     },
     {
       "path": "README.md",
-      "sha256": "76801e71fd568f5ab7cd991134af0fa97d90a4f0b3ba8df3b2abbbb8fd681716",
-      "bytes": 12585
+      "sha256": "96c0409d7a9ea2f7c811c7c5455c898d2d1c60b402699db8470e152480b39710",
+      "bytes": 12594
     },
     {
       "path": "app/__init__.py",
@@ -114,8 +114,8 @@
     },
     {
       "path": "scripts/check_agent_docs.py",
-      "sha256": "fb4df3baa0342bd6d1598c5b7a49a26a95d40e64625e3ad7f4d483efd892aaff",
-      "bytes": 3100
+      "sha256": "18de38e26b8484e828b87b0d278c5158946665502f83a0196206efca41188723",
+      "bytes": 3109
     },
     {
       "path": "scripts/check_doc_review.py",
@@ -124,8 +124,8 @@
     },
     {
       "path": "scripts/generate_agent_docs.py",
-      "sha256": "5430c01bfb6dbe300e39e045943607561249b1b36874c4ef87c6424e8534a1e3",
-      "bytes": 6549
+      "sha256": "bc7b51f22b6c084eefe78a1b37797defb6d88f0d307143030ab738e4dc80b5a1",
+      "bytes": 6558
     },
     {
       "path": "systemd/xauusd-data-layer-api.service",

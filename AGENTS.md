@@ -1,7 +1,10 @@
 # Agent Guide
 
-Read this file first, then `docs/agent/architecture.md`,
-`docs/agent/contracts.md`, and `docs/agent/code-index.json` as needed.
+Read this file first, then consult the relevant files as needed:
+- `docs/agent/architecture.md`: system design and data flow.
+- `docs/agent/contracts.md`: API and data contracts.
+- `docs/agent/runtime.md`: deployment and operations.
+- `docs/agent/code-index.json`: Python symbol navigation.
 
 ## Rules
 - Treat source code as the authority; generated indexes are navigation aids.

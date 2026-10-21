@@ -573,8 +573,8 @@
     },
     {
       "path": "scripts/check_agent_docs.py",
-      "sha256": "fb4df3baa0342bd6d1598c5b7a49a26a95d40e64625e3ad7f4d483efd892aaff",
-      "bytes": 3100,
+      "sha256": "18de38e26b8484e828b87b0d278c5158946665502f83a0196206efca41188723",
+      "bytes": 3109,
       "parse_error": null,
       "imports": [
         "hashlib",
@@ -738,8 +738,8 @@
     },
     {
       "path": "scripts/generate_agent_docs.py",
-      "sha256": "5430c01bfb6dbe300e39e045943607561249b1b36874c4ef87c6424e8534a1e3",
-      "bytes": 6549,
+      "sha256": "bc7b51f22b6c084eefe78a1b37797defb6d88f0d307143030ab738e4dc80b5a1",
+      "bytes": 6558,
       "parse_error": null,
       "imports": [
         "argparse",

@@ -696,7 +696,7 @@ Authentication
 HTTPS
 API keys
 Rate limiting
-systemd services
+systemd service hardening
 Reverse proxy
 Historical data management
 Automatic archive management
