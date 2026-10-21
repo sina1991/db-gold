@@ -52,3 +52,17 @@ systems. If the project directory already contains a Git repository, the
 installer fetches the configured branch and runs `git reset --hard origin/master`.
 This can discard local tracked changes. Review the script and preserve needed
 changes before running it; do not use it as a routine documentation check.
+
+## Independent Dashboard service
+
+- Systemd unit: `xauusd-dashboard.service`
+- Working directory: `/root/xauusd_data_layer`
+- Application: `dashboard.app:app`
+- Uvicorn listener: `127.0.0.1:8010`
+- Public reverse-proxy listener: Nginx on port `8081`
+- Health check: `curl --max-time 5 -fsS http://127.0.0.1:8010/health`
+- Public proxy check: `curl --max-time 8 -fsS http://127.0.0.1:8081/health`
+
+The Dashboard is independent from the data API and collector services.
+Recheck service state, Nginx configuration, and network access when
+troubleshooting; runtime state can change.

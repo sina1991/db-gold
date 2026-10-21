@@ -14,7 +14,7 @@ def sha256(path):
 
 def python_files():
     result = []
-    for folder in ("app", "scripts", "tests"):
+    for folder in ("app", "scripts", "tests", "dashboard"):
         base = ROOT / folder
         if base.exists():
             result.extend(
@@ -35,6 +35,7 @@ def manifest_files():
     for pattern in (
         "systemd/*.service", "docs/agent/*.md",
         ".githooks/*", ".github/workflows/*",
+        "dashboard/themes/*.json",
     ):
         paths.extend(ROOT.glob(pattern))
     paths.extend(python_files())

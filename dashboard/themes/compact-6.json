@@ -1,0 +1,14 @@
+{
+  "id": "compact-6",
+  "name": "Compact 6",
+  "version": 1,
+  "grid": {"columns": 12, "gap": 12},
+  "slots": [
+    {"id": "slot-01", "name": "Slot 1", "column": 1, "row": 1, "column_span": 6, "row_span": 1},
+    {"id": "slot-02", "name": "Slot 2", "column": 7, "row": 1, "column_span": 6, "row_span": 1},
+    {"id": "slot-03", "name": "Slot 3", "column": 1, "row": 2, "column_span": 4, "row_span": 1},
+    {"id": "slot-04", "name": "Slot 4", "column": 5, "row": 2, "column_span": 4, "row_span": 1},
+    {"id": "slot-05", "name": "Slot 5", "column": 9, "row": 2, "column_span": 4, "row_span": 1},
+    {"id": "slot-06", "name": "Slot 6", "column": 1, "row": 3, "column_span": 12, "row_span": 1}
+  ]
+}

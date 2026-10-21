@@ -88,19 +88,54 @@
       "bytes": 4652
     },
     {
+      "path": "dashboard/__init__.py",
+      "sha256": "39a2409b814b6dc133bf281743b107ab496141091c03051abe9ebb3d6a054c05",
+      "bytes": 53
+    },
+    {
+      "path": "dashboard/app.py",
+      "sha256": "ce08d39b5595c2b9e65b6bfce7d1a0eae344a6479d66205d605df1b024625d0a",
+      "bytes": 13380
+    },
+    {
+      "path": "dashboard/modules/__init__.py",
+      "sha256": "35ef8ebac64753121ad6a4d2e62c7c2c90b29160f0c22dbadb2faf113226622f",
+      "bytes": 41
+    },
+    {
+      "path": "dashboard/modules/registry.py",
+      "sha256": "95daa578ca0e1c087299943e45b539db54a776e0324cd52fed17064df4188d28",
+      "bytes": 1104
+    },
+    {
+      "path": "dashboard/themes/compact-6.json",
+      "sha256": "ae0ea5e577c3455e1e5186426078b92ba4a71c2c4407c28c426ae14e1c1e5475",
+      "bytes": 701
+    },
+    {
+      "path": "dashboard/themes/standard-8.json",
+      "sha256": "5eca7faeff243bd66d0d543f9abd3cf8cb546d3ba9a0255fe6be2fc25962861a",
+      "bytes": 897
+    },
+    {
+      "path": "dashboard/themes/wide-12.json",
+      "sha256": "10be282fd11f12bdf37c1161039d04364d5b6a34dce1af89bfb7133d132d4048",
+      "bytes": 1284
+    },
+    {
       "path": "docs/agent/architecture.md",
-      "sha256": "63341a0fff51e2b96af756085b726998521e1ebc3aa3202870c9727c77aee407",
-      "bytes": 2151
+      "sha256": "05b3ecb23913315fc0e4b036c0fc477499df4ee1cfe6bd25c27abefe902a8775",
+      "bytes": 2931
     },
     {
       "path": "docs/agent/contracts.md",
-      "sha256": "ecebed32eb44c03688af0a205adca1540d3d248386b67464188b31791e287e15",
-      "bytes": 1469
+      "sha256": "5546e8cdd296c0f13c294fde70a2feba45ec182cd5c5343c9da2f7c43bcb5073",
+      "bytes": 2338
     },
     {
       "path": "docs/agent/runtime.md",
-      "sha256": "cedd72058a78f1c138d61127a29a9d98c727c6ec797c884923517f80a57b4c95",
-      "bytes": 1877
+      "sha256": "be7d3822ae51fbd9a37ea4114120b4f7d8541ed3069689b972a1d29567c0ce07",
+      "bytes": 2457
     },
     {
       "path": "install.sh",
@@ -114,8 +149,8 @@
     },
     {
       "path": "scripts/check_agent_docs.py",
-      "sha256": "18de38e26b8484e828b87b0d278c5158946665502f83a0196206efca41188723",
-      "bytes": 3109
+      "sha256": "437fc9b6c649eba01f976030dff029f78ce05dec960ce46172ab56c43e108450",
+      "bytes": 3157
     },
     {
       "path": "scripts/check_doc_review.py",
@@ -124,8 +159,8 @@
     },
     {
       "path": "scripts/generate_agent_docs.py",
-      "sha256": "bc7b51f22b6c084eefe78a1b37797defb6d88f0d307143030ab738e4dc80b5a1",
-      "bytes": 6558
+      "sha256": "a5c7d290fe267c821112e9e6c26ff82d46d7dabd9cf3e468dc8d2964f38b621b",
+      "bytes": 6606
     },
     {
       "path": "systemd/xauusd-data-layer-api.service",

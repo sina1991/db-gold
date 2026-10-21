@@ -572,9 +572,161 @@
       ]
     },
     {
+      "path": "dashboard/__init__.py",
+      "sha256": "39a2409b814b6dc133bf281743b107ab496141091c03051abe9ebb3d6a054c05",
+      "bytes": 53,
+      "parse_error": null,
+      "imports": [],
+      "symbols": []
+    },
+    {
+      "path": "dashboard/app.py",
+      "sha256": "ce08d39b5595c2b9e65b6bfce7d1a0eae344a6479d66205d605df1b024625d0a",
+      "bytes": 13380,
+      "parse_error": null,
+      "imports": [
+        ".modules.registry",
+        "__future__",
+        "fastapi",
+        "fastapi.responses",
+        "json",
+        "pathlib",
+        "re"
+      ],
+      "symbols": [
+        {
+          "name": "load_themes",
+          "kind": "function",
+          "line_start": 23,
+          "line_end": 54,
+          "signature": "load_themes()",
+          "returns": "list[dict]",
+          "doc": null,
+          "calls": [
+            "HTTPException",
+            "THEMES_DIR.glob",
+            "isinstance",
+            "json.loads",
+            "path.read_text",
+            "sorted",
+            "theme.get",
+            "themes.append"
+          ]
+        },
+        {
+          "name": "health",
+          "kind": "function",
+          "line_start": 58,
+          "line_end": 59,
+          "signature": "health()",
+          "returns": "dict",
+          "doc": null,
+          "calls": [
+            "app.get"
+          ]
+        },
+        {
+          "name": "list_themes",
+          "kind": "function",
+          "line_start": 63,
+          "line_end": 76,
+          "signature": "list_themes()",
+          "returns": "dict",
+          "doc": null,
+          "calls": [
+            "app.get",
+            "len",
+            "load_themes"
+          ]
+        },
+        {
+          "name": "get_theme",
+          "kind": "function",
+          "line_start": 80,
+          "line_end": 88,
+          "signature": "get_theme(theme_id: str)",
+          "returns": "dict",
+          "doc": null,
+          "calls": [
+            "HTTPException",
+            "THEME_ID_PATTERN.fullmatch",
+            "app.get",
+            "load_themes"
+          ]
+        },
+        {
+          "name": "api_modules",
+          "kind": "function",
+          "line_start": 92,
+          "line_end": 94,
+          "signature": "api_modules()",
+          "returns": "dict",
+          "doc": null,
+          "calls": [
+            "app.get",
+            "len",
+            "list_modules"
+          ]
+        },
+        {
+          "name": "dashboard",
+          "kind": "function",
+          "line_start": 98,
+          "line_end": 99,
+          "signature": "dashboard()",
+          "returns": "str",
+          "doc": null,
+          "calls": [
+            "app.get"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "dashboard/modules/__init__.py",
+      "sha256": "35ef8ebac64753121ad6a4d2e62c7c2c90b29160f0c22dbadb2faf113226622f",
+      "bytes": 41,
+      "parse_error": null,
+      "imports": [],
+      "symbols": []
+    },
+    {
+      "path": "dashboard/modules/registry.py",
+      "sha256": "95daa578ca0e1c087299943e45b539db54a776e0324cd52fed17064df4188d28",
+      "bytes": 1104,
+      "parse_error": null,
+      "imports": [],
+      "symbols": [
+        {
+          "name": "list_modules",
+          "kind": "function",
+          "line_start": 30,
+          "line_end": 32,
+          "signature": "list_modules()",
+          "returns": "list[dict[str, str]]",
+          "doc": "Return JSON-safe copies of the registered module definitions.",
+          "calls": [
+            "dict"
+          ]
+        },
+        {
+          "name": "get_module",
+          "kind": "function",
+          "line_start": 35,
+          "line_end": 40,
+          "signature": "get_module(module_id: str)",
+          "returns": "dict[str, str] | None",
+          "doc": "Return one registered module, or None if it is not allowlisted.",
+          "calls": [
+            "dict"
+          ]
+        }
+      ]
+    },
+    {
       "path": "scripts/check_agent_docs.py",
-      "sha256": "18de38e26b8484e828b87b0d278c5158946665502f83a0196206efca41188723",
-      "bytes": 3109,
+      "sha256": "437fc9b6c649eba01f976030dff029f78ce05dec960ce46172ab56c43e108450",
+      "bytes": 3157,
       "parse_error": null,
       "imports": [
         "hashlib",
@@ -617,7 +769,7 @@
           "name": "manifest_files",
           "kind": "function",
           "line_start": 26,
-          "line_end": 41,
+          "line_end": 42,
           "signature": "manifest_files()",
           "returns": null,
           "doc": null,
@@ -634,8 +786,8 @@
         {
           "name": "compare",
           "kind": "function",
-          "line_start": 43,
-          "line_end": 53,
+          "line_start": 44,
+          "line_end": 54,
           "signature": "compare(label, expected, actual)",
           "returns": null,
           "doc": null,
@@ -649,8 +801,8 @@
         {
           "name": "main",
           "kind": "function",
-          "line_start": 55,
-          "line_end": 88,
+          "line_start": 56,
+          "line_end": 89,
           "signature": "main()",
           "returns": null,
           "doc": null,
@@ -738,8 +890,8 @@
     },
     {
       "path": "scripts/generate_agent_docs.py",
-      "sha256": "bc7b51f22b6c084eefe78a1b37797defb6d88f0d307143030ab738e4dc80b5a1",
-      "bytes": 6558,
+      "sha256": "a5c7d290fe267c821112e9e6c26ff82d46d7dabd9cf3e468dc8d2964f38b621b",
+      "bytes": 6606,
       "parse_error": null,
       "imports": [
         "argparse",
@@ -783,7 +935,7 @@
           "name": "manifest_files",
           "kind": "function",
           "line_start": 28,
-          "line_end": 47,
+          "line_end": 48,
           "signature": "manifest_files()",
           "returns": null,
           "doc": null,
@@ -800,8 +952,8 @@
         {
           "name": "write_output",
           "kind": "function",
-          "line_start": 50,
-          "line_end": 60,
+          "line_start": 51,
+          "line_end": 61,
           "signature": "write_output(path, content, check)",
           "returns": null,
           "doc": null,
@@ -817,8 +969,8 @@
         {
           "name": "imports_for",
           "kind": "function",
-          "line_start": 62,
-          "line_end": 69,
+          "line_start": 63,
+          "line_end": 70,
           "signature": "imports_for(tree)",
           "returns": null,
           "doc": null,
@@ -834,8 +986,8 @@
         {
           "name": "calls_for",
           "kind": "function",
-          "line_start": 71,
-          "line_end": 88,
+          "line_start": 72,
+          "line_end": 89,
           "signature": "calls_for(node)",
           "returns": null,
           "doc": null,
@@ -853,8 +1005,8 @@
         {
           "name": "describe_node",
           "kind": "function",
-          "line_start": 90,
-          "line_end": 122,
+          "line_start": 91,
+          "line_end": 123,
           "signature": "describe_node(node, parent=None)",
           "returns": null,
           "doc": null,
@@ -871,8 +1023,8 @@
         {
           "name": "main",
           "kind": "function",
-          "line_start": 124,
-          "line_end": 198,
+          "line_start": 125,
+          "line_end": 199,
           "signature": "main()",
           "returns": null,
           "doc": null,

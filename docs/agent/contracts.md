@@ -40,3 +40,24 @@ Missing latest candle returns HTTP 404 on `/api/v1/price` and
 `/api/v1/candles/latest`.
 
 FastAPI also exposes its generated OpenAPI/Swagger documentation.
+
+## Dashboard endpoints
+
+The separate Dashboard service exposes:
+
+| Endpoint | Behavior |
+|---|---|
+| `GET /health` | Dashboard service health |
+| `GET /api/themes` | Theme identifiers, names, versions, and slot counts |
+| `GET /api/themes/{theme_id}` | Full JSON definition of a theme |
+| `GET /api/modules` | Allowlisted UI module metadata |
+
+Theme identifiers match their JSON filenames under `dashboard/themes/`.
+Each slot uses an ID and grid position (`column`, `row`, `column_span`,
+`row_span`). The frontend's module selector is constrained to the IDs
+returned by `GET /api/modules`.
+
+Slot selections and notes are stored locally in the browser under
+`xauusd-dashboard-slot-settings-v1`. The active theme is stored separately
+under `xauusd-dashboard-active-theme-v1`. Clearing browser storage or using
+a different browser removes access to these local settings.

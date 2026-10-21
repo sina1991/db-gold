@@ -46,3 +46,20 @@ Systemd units:
 
 The observed API listener was `0.0.0.0:8000`, which binds all IPv4
 interfaces. Verify firewall/network policy before assuming the API is private.
+
+## Dashboard workspace
+
+The independent theme-based Dashboard is served by `dashboard.app:app`.
+Its FastAPI routes and HTML/CSS/JavaScript shell are implemented in
+`dashboard/app.py`. Theme layouts are JSON files under `dashboard/themes/`,
+and the allowlisted UI module metadata is maintained in
+`dashboard/modules/registry.py`.
+
+The three shipped layouts are `compact-6` (6 slots), `standard-8` (8 slots),
+and `wide-12` (12 slots). The frontend renders slot positions from the
+selected theme and stores slot module selections and notes in browser
+`localStorage`. The active theme is stored separately in browser
+`localStorage`. These browser settings are not server-side user profiles.
+
+The Dashboard is a separate service and does not replace the XAUUSD data
+API or collector.
