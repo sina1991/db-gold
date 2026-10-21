@@ -1,0 +1,126 @@
+{
+  "format_version": 1,
+  "purpose": "Hashes of key source, deployment, and handbook files.",
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "1eddbf307d3179416255704a85b1ed9c8487c4ab670b43e2df3be3e77cc784bd",
+      "bytes": 73
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "b8dcb76c0ce3ea1f4bad61b000ce534bb5eb0c929693d764fe11d402ca446375",
+      "bytes": 2167
+    },
+    {
+      "path": "README.md",
+      "sha256": "76801e71fd568f5ab7cd991134af0fa97d90a4f0b3ba8df3b2abbbb8fd681716",
+      "bytes": 12585
+    },
+    {
+      "path": "app/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "app/api/__init__.py",
+      "sha256": "ad5f5b9cc047a3f2283bb4815849b9b673f1448ba47d0caf4f743b0881447884",
+      "bytes": 48
+    },
+    {
+      "path": "app/api/main.py",
+      "sha256": "12623e218d7a4a72d6d9cdf6ad3fd2fbad0ba87444246380e585216783f51e93",
+      "bytes": 2414
+    },
+    {
+      "path": "app/archive/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "app/bootstrap/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "app/bootstrap/collector_runtime.py",
+      "sha256": "d3eb1ea7be9f93d555ee5966338c1b4e077d4f133a6d4bcbafcd3231d091bfd7",
+      "bytes": 1498
+    },
+    {
+      "path": "app/collector/__init__.py",
+      "sha256": "45e8d8a3067f8b81e4ceb91214ff3fdb0ec4f039e799da7ed4ccb4f61141ea6b",
+      "bytes": 248
+    },
+    {
+      "path": "app/collector/biquote.py",
+      "sha256": "4403fcbcd9c92f46613742e8213cc2057f746da65184796c6be2cfe926f831b4",
+      "bytes": 3843
+    },
+    {
+      "path": "app/collector/service.py",
+      "sha256": "4abe7f9724d24fa8662aae603c8f0ba123f9d0dc52fcea8cb503ddca8799782f",
+      "bytes": 1882
+    },
+    {
+      "path": "app/config.py",
+      "sha256": "181bc72ca5d5d7c899e53ce79d4131f5419bf41c7a70142ae3fc2e4c393f241a",
+      "bytes": 579
+    },
+    {
+      "path": "app/database/__init__.py",
+      "sha256": "f73fe2a18effd8af5529a37c3c9e89fdabb7c4234ca2dc7e15a3c39ee6f2de85",
+      "bytes": 319
+    },
+    {
+      "path": "app/database/database.py",
+      "sha256": "5a6351cbefcc07d4d3db2c8d3afb63c529c08b9774caf19b63155cbcf27e5c1a",
+      "bytes": 4652
+    },
+    {
+      "path": "docs/agent/architecture.md",
+      "sha256": "8326f6f96869dd004359b72602e88f74b3622852bf98d05905c5bd2c766e4674",
+      "bytes": 1671
+    },
+    {
+      "path": "docs/agent/contracts.md",
+      "sha256": "ecebed32eb44c03688af0a205adca1540d3d248386b67464188b31791e287e15",
+      "bytes": 1469
+    },
+    {
+      "path": "docs/agent/runtime.md",
+      "sha256": "cedd72058a78f1c138d61127a29a9d98c727c6ec797c884923517f80a57b4c95",
+      "bytes": 1877
+    },
+    {
+      "path": "install.sh",
+      "sha256": "999819ef28a5503581589b295ef946dafe8aa3ff71079d410701c235c3d0b735",
+      "bytes": 2980
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "3e93f5813363b13adc04189a83a23d0204f4706546656709fdf6a06c85d0ba0a",
+      "bytes": 35
+    },
+    {
+      "path": "scripts/check_agent_docs.py",
+      "sha256": "17b44a1fdbef88c183eaafa0d9f368625746c810a95a45089c1c37371721f31b",
+      "bytes": 3039
+    },
+    {
+      "path": "scripts/generate_agent_docs.py",
+      "sha256": "12dfa59da217c2433a85c8bb7113e8b29872852040f00b9f141ab5bd099aefe0",
+      "bytes": 5600
+    },
+    {
+      "path": "systemd/xauusd-data-layer-api.service",
+      "sha256": "b481b05f40e0c621a4b492170b9ba371cb2b334d216f70211516542fa7f81551",
+      "bytes": 298
+    },
+    {
+      "path": "systemd/xauusd-data-layer-collector.service",
+      "sha256": "ddd6f7cc8a5bca5f6aaeb397967d749300021876b39b8421941f309ba6ce80a5",
+      "bytes": 329
+    }
+  ]
+}

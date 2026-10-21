@@ -1,0 +1,826 @@
+{
+  "format_version": 1,
+  "purpose": "Python source navigation index; source code remains authoritative.",
+  "files": [
+    {
+      "path": "app/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "parse_error": null,
+      "imports": [],
+      "symbols": []
+    },
+    {
+      "path": "app/api/__init__.py",
+      "sha256": "ad5f5b9cc047a3f2283bb4815849b9b673f1448ba47d0caf4f743b0881447884",
+      "bytes": 48,
+      "parse_error": null,
+      "imports": [
+        "app.api.main"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "app/api/main.py",
+      "sha256": "12623e218d7a4a72d6d9cdf6ad3fd2fbad0ba87444246380e585216783f51e93",
+      "bytes": 2414,
+      "parse_error": null,
+      "imports": [
+        "app.config",
+        "app.database",
+        "fastapi"
+      ],
+      "symbols": [
+        {
+          "name": "health",
+          "kind": "function",
+          "line_start": 19,
+          "line_end": 23,
+          "signature": "health()",
+          "returns": "dict",
+          "doc": null,
+          "calls": [
+            "app.get"
+          ]
+        },
+        {
+          "name": "candles",
+          "kind": "function",
+          "line_start": 27,
+          "line_end": 55,
+          "signature": "candles(limit: int=Query(default=100, ge=1, le=1000), start_time: int | None=Query(default=None), end_time: int | None=Query(default=None))",
+          "returns": "dict",
+          "doc": null,
+          "calls": [
+            "HTTPException",
+            "Query",
+            "app.get",
+            "get_candle_count",
+            "get_candles",
+            "len"
+          ]
+        },
+        {
+          "name": "latest_candle",
+          "kind": "function",
+          "line_start": 59,
+          "line_end": 72,
+          "signature": "latest_candle()",
+          "returns": "dict",
+          "doc": null,
+          "calls": [
+            "HTTPException",
+            "app.get",
+            "get_latest_candle"
+          ]
+        },
+        {
+          "name": "candle",
+          "kind": "function",
+          "line_start": 76,
+          "line_end": 92,
+          "signature": "candle(timestamp: int)",
+          "returns": "dict",
+          "doc": null,
+          "calls": [
+            "HTTPException",
+            "app.get",
+            "get_candle"
+          ]
+        },
+        {
+          "name": "price",
+          "kind": "function",
+          "line_start": 96,
+          "line_end": 110,
+          "signature": "price()",
+          "returns": "dict",
+          "doc": null,
+          "calls": [
+            "HTTPException",
+            "app.get",
+            "get_latest_candle"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/archive/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "parse_error": null,
+      "imports": [],
+      "symbols": []
+    },
+    {
+      "path": "app/bootstrap/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "parse_error": null,
+      "imports": [],
+      "symbols": []
+    },
+    {
+      "path": "app/bootstrap/collector_runtime.py",
+      "sha256": "d3eb1ea7be9f93d555ee5966338c1b4e077d4f133a6d4bcbafcd3231d091bfd7",
+      "bytes": 1498,
+      "parse_error": null,
+      "imports": [
+        "app.collector",
+        "app.config",
+        "logging",
+        "time"
+      ],
+      "symbols": [
+        {
+          "name": "CollectorRuntime",
+          "kind": "class",
+          "line_start": 11,
+          "line_end": 54,
+          "signature": null,
+          "returns": null,
+          "doc": null,
+          "methods": [
+            {
+              "name": "__init__",
+              "kind": "method",
+              "line_start": 12,
+              "line_end": 19,
+              "signature": "__init__(self, service: CollectorService | None=None, poll_seconds: int=COLLECTOR_POLL_SECONDS)",
+              "returns": null,
+              "doc": null,
+              "calls": [
+                "CollectorService"
+              ]
+            },
+            {
+              "name": "run_once",
+              "kind": "method",
+              "line_start": 21,
+              "line_end": 22,
+              "signature": "run_once(self)",
+              "returns": "dict | None",
+              "doc": null,
+              "calls": [
+                "self.service.collect_latest_closed"
+              ]
+            },
+            {
+              "name": "run",
+              "kind": "method",
+              "line_start": 24,
+              "line_end": 51,
+              "signature": "run(self)",
+              "returns": "None",
+              "doc": null,
+              "calls": [
+                "logger.exception",
+                "logger.info",
+                "self.run_once",
+                "time.sleep"
+              ]
+            },
+            {
+              "name": "stop",
+              "kind": "method",
+              "line_start": 53,
+              "line_end": 54,
+              "signature": "stop(self)",
+              "returns": "None",
+              "doc": null,
+              "calls": []
+            }
+          ]
+        },
+        {
+          "name": "main",
+          "kind": "function",
+          "line_start": 57,
+          "line_end": 58,
+          "signature": "main()",
+          "returns": "None",
+          "doc": null,
+          "calls": [
+            "CollectorRuntime",
+            "run"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/collector/__init__.py",
+      "sha256": "45e8d8a3067f8b81e4ceb91214ff3fdb0ec4f039e799da7ed4ccb4f61141ea6b",
+      "bytes": 248,
+      "parse_error": null,
+      "imports": [
+        "app.collector.biquote",
+        "app.collector.service"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "app/collector/biquote.py",
+      "sha256": "4403fcbcd9c92f46613742e8213cc2057f746da65184796c6be2cfe926f831b4",
+      "bytes": 3843,
+      "parse_error": null,
+      "imports": [
+        "app.config",
+        "datetime",
+        "requests"
+      ],
+      "symbols": [
+        {
+          "name": "BiquoteClient",
+          "kind": "class",
+          "line_start": 8,
+          "line_end": 132,
+          "signature": null,
+          "returns": null,
+          "doc": null,
+          "methods": [
+            {
+              "name": "__init__",
+              "kind": "method",
+              "line_start": 9,
+              "line_end": 15,
+              "signature": "__init__(self, timeout: int=BIQUOTE_TIMEOUT, base_url: str=BIQUOTE_BASE_URL)",
+              "returns": null,
+              "doc": null,
+              "calls": [
+                "base_url.rstrip"
+              ]
+            },
+            {
+              "name": "get_ohlc",
+              "kind": "method",
+              "line_start": 17,
+              "line_end": 54,
+              "signature": "get_ohlc(self, symbol: str, interval: str='1m', limit: int=100, to: str | None=None)",
+              "returns": "list[dict]",
+              "doc": null,
+              "calls": [
+                "ValueError",
+                "data.get",
+                "isinstance",
+                "requests.get",
+                "response.json",
+                "response.raise_for_status"
+              ]
+            },
+            {
+              "name": "get_current_open_candle",
+              "kind": "method",
+              "line_start": 56,
+              "line_end": 71,
+              "signature": "get_current_open_candle(self, symbol: str, interval: str='1m')",
+              "returns": "dict | None",
+              "doc": null,
+              "calls": [
+                "bar.get",
+                "self.get_ohlc"
+              ]
+            },
+            {
+              "name": "get_latest_candles",
+              "kind": "method",
+              "line_start": 73,
+              "line_end": 132,
+              "signature": "get_latest_candles(self, symbol: str, count: int=300, interval: str='1m')",
+              "returns": "list[dict]",
+              "doc": null,
+              "calls": [
+                "ValueError",
+                "astimezone",
+                "bar.get",
+                "collected.values",
+                "datetime.fromisoformat",
+                "isoformat",
+                "len",
+                "min",
+                "oldest_time.replace",
+                "replace",
+                "self.get_ohlc",
+                "sorted",
+                "timedelta"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "is_closed_bar",
+          "kind": "function",
+          "line_start": 135,
+          "line_end": 136,
+          "signature": "is_closed_bar(bar: dict)",
+          "returns": "bool",
+          "doc": null,
+          "calls": [
+            "bar.get"
+          ]
+        },
+        {
+          "name": "bar_to_candle",
+          "kind": "function",
+          "line_start": 139,
+          "line_end": 168,
+          "signature": "bar_to_candle(bar: dict)",
+          "returns": "dict",
+          "doc": null,
+          "calls": [
+            "ValueError",
+            "datetime.fromisoformat",
+            "float",
+            "int",
+            "replace",
+            "timestamp"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/collector/service.py",
+      "sha256": "4abe7f9724d24fa8662aae603c8f0ba123f9d0dc52fcea8cb503ddca8799782f",
+      "bytes": 1882,
+      "parse_error": null,
+      "imports": [
+        "app.collector.biquote",
+        "app.config",
+        "app.database",
+        "pathlib"
+      ],
+      "symbols": [
+        {
+          "name": "CollectorService",
+          "kind": "class",
+          "line_start": 12,
+          "line_end": 82,
+          "signature": null,
+          "returns": null,
+          "doc": null,
+          "methods": [
+            {
+              "name": "__init__",
+              "kind": "method",
+              "line_start": 13,
+              "line_end": 19,
+              "signature": "__init__(self, client: BiquoteClient | None=None, database_path: Path=DATABASE_PATH)",
+              "returns": null,
+              "doc": null,
+              "calls": [
+                "BiquoteClient"
+              ]
+            },
+            {
+              "name": "get_current_open_candle",
+              "kind": "method",
+              "line_start": 21,
+              "line_end": 25,
+              "signature": "get_current_open_candle(self)",
+              "returns": "dict | None",
+              "doc": null,
+              "calls": [
+                "self.client.get_current_open_candle"
+              ]
+            },
+            {
+              "name": "get_current_price",
+              "kind": "method",
+              "line_start": 27,
+              "line_end": 33,
+              "signature": "get_current_price(self)",
+              "returns": "float | None",
+              "doc": null,
+              "calls": [
+                "float",
+                "self.get_current_open_candle"
+              ]
+            },
+            {
+              "name": "collect_latest_closed",
+              "kind": "method",
+              "line_start": 35,
+              "line_end": 55,
+              "signature": "collect_latest_closed(self)",
+              "returns": "dict | None",
+              "doc": null,
+              "calls": [
+                "bar_to_candle",
+                "is_closed_bar",
+                "self.client.get_ohlc",
+                "upsert_candle"
+              ]
+            },
+            {
+              "name": "collect_initial",
+              "kind": "method",
+              "line_start": 57,
+              "line_end": 82,
+              "signature": "collect_initial(self, count: int=300)",
+              "returns": "list[dict]",
+              "doc": null,
+              "calls": [
+                "bar_to_candle",
+                "candles.append",
+                "is_closed_bar",
+                "self.client.get_latest_candles",
+                "upsert_candle"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "app/config.py",
+      "sha256": "181bc72ca5d5d7c899e53ce79d4131f5419bf41c7a70142ae3fc2e4c393f241a",
+      "bytes": 579,
+      "parse_error": null,
+      "imports": [
+        "pathlib"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "app/database/__init__.py",
+      "sha256": "f73fe2a18effd8af5529a37c3c9e89fdabb7c4234ca2dc7e15a3c39ee6f2de85",
+      "bytes": 319,
+      "parse_error": null,
+      "imports": [
+        "app.database.database"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "app/database/database.py",
+      "sha256": "5a6351cbefcc07d4d3db2c8d3afb63c529c08b9774caf19b63155cbcf27e5c1a",
+      "bytes": 4652,
+      "parse_error": null,
+      "imports": [
+        "app.config",
+        "pathlib",
+        "sqlite3"
+      ],
+      "symbols": [
+        {
+          "name": "connect",
+          "kind": "function",
+          "line_start": 7,
+          "line_end": 9,
+          "signature": "connect(database_path: Path=DATABASE_PATH)",
+          "returns": "sqlite3.Connection",
+          "doc": null,
+          "calls": [
+            "DATA_DIR.mkdir",
+            "sqlite3.connect"
+          ]
+        },
+        {
+          "name": "initialize",
+          "kind": "function",
+          "line_start": 12,
+          "line_end": 18,
+          "signature": "initialize(database_path: Path=DATABASE_PATH)",
+          "returns": "None",
+          "doc": null,
+          "calls": [
+            "conn.close",
+            "conn.commit",
+            "conn.execute",
+            "connect"
+          ]
+        },
+        {
+          "name": "get_candle",
+          "kind": "function",
+          "line_start": 21,
+          "line_end": 58,
+          "signature": "get_candle(time: int, database_path: Path=DATABASE_PATH)",
+          "returns": "dict | None",
+          "doc": null,
+          "calls": [
+            "conn.close",
+            "conn.execute",
+            "connect",
+            "fetchone"
+          ]
+        },
+        {
+          "name": "get_candles",
+          "kind": "function",
+          "line_start": 61,
+          "line_end": 119,
+          "signature": "get_candles(limit: int=100, start_time: int | None=None, end_time: int | None=None, database_path: Path=DATABASE_PATH)",
+          "returns": "list[dict]",
+          "doc": null,
+          "calls": [
+            "conditions.append",
+            "conn.close",
+            "conn.execute",
+            "connect",
+            "fetchall",
+            "join",
+            "parameters.append",
+            "rows.reverse"
+          ]
+        },
+        {
+          "name": "get_latest_candle",
+          "kind": "function",
+          "line_start": 122,
+          "line_end": 158,
+          "signature": "get_latest_candle(database_path: Path=DATABASE_PATH)",
+          "returns": "dict | None",
+          "doc": null,
+          "calls": [
+            "conn.close",
+            "conn.execute",
+            "connect",
+            "fetchone"
+          ]
+        },
+        {
+          "name": "get_candle_count",
+          "kind": "function",
+          "line_start": 161,
+          "line_end": 172,
+          "signature": "get_candle_count(database_path: Path=DATABASE_PATH)",
+          "returns": "int",
+          "doc": null,
+          "calls": [
+            "conn.close",
+            "conn.execute",
+            "connect",
+            "fetchone",
+            "int"
+          ]
+        },
+        {
+          "name": "upsert_candle",
+          "kind": "function",
+          "line_start": 175,
+          "line_end": 212,
+          "signature": "upsert_candle(candle: dict, database_path: Path=DATABASE_PATH)",
+          "returns": "None",
+          "doc": null,
+          "calls": [
+            "conn.close",
+            "conn.commit",
+            "conn.execute",
+            "connect"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "scripts/check_agent_docs.py",
+      "sha256": "17b44a1fdbef88c183eaafa0d9f368625746c810a95a45089c1c37371721f31b",
+      "bytes": 3039,
+      "parse_error": null,
+      "imports": [
+        "hashlib",
+        "json",
+        "pathlib"
+      ],
+      "symbols": [
+        {
+          "name": "sha256",
+          "kind": "function",
+          "line_start": 12,
+          "line_end": 13,
+          "signature": "sha256(path)",
+          "returns": null,
+          "doc": null,
+          "calls": [
+            "hashlib.sha256",
+            "hexdigest",
+            "path.read_bytes"
+          ]
+        },
+        {
+          "name": "python_files",
+          "kind": "function",
+          "line_start": 15,
+          "line_end": 24,
+          "signature": "python_files()",
+          "returns": null,
+          "doc": null,
+          "calls": [
+            "any",
+            "base.exists",
+            "base.rglob",
+            "result.extend",
+            "set",
+            "sorted"
+          ]
+        },
+        {
+          "name": "manifest_files",
+          "kind": "function",
+          "line_start": 26,
+          "line_end": 38,
+          "signature": "manifest_files()",
+          "returns": null,
+          "doc": null,
+          "calls": [
+            "ROOT.glob",
+            "p.is_file",
+            "paths.append",
+            "paths.extend",
+            "python_files",
+            "set",
+            "sorted"
+          ]
+        },
+        {
+          "name": "compare",
+          "kind": "function",
+          "line_start": 40,
+          "line_end": 50,
+          "signature": "compare(label, expected, actual)",
+          "returns": null,
+          "doc": null,
+          "calls": [
+            "actual.keys",
+            "expected.keys",
+            "print",
+            "sorted"
+          ]
+        },
+        {
+          "name": "main",
+          "kind": "function",
+          "line_start": 52,
+          "line_end": 85,
+          "signature": "main()",
+          "returns": null,
+          "doc": null,
+          "calls": [
+            "INDEX.read_text",
+            "MANIFEST.read_text",
+            "as_posix",
+            "compare",
+            "index_data.get",
+            "json.loads",
+            "len",
+            "manifest_data.get",
+            "manifest_files",
+            "p.is_file",
+            "p.relative_to",
+            "print",
+            "python_files",
+            "sha256"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "scripts/generate_agent_docs.py",
+      "sha256": "12dfa59da217c2433a85c8bb7113e8b29872852040f00b9f141ab5bd099aefe0",
+      "bytes": 5600,
+      "parse_error": null,
+      "imports": [
+        "ast",
+        "hashlib",
+        "json",
+        "pathlib"
+      ],
+      "symbols": [
+        {
+          "name": "sha256",
+          "kind": "function",
+          "line_start": 13,
+          "line_end": 14,
+          "signature": "sha256(data)",
+          "returns": null,
+          "doc": null,
+          "calls": [
+            "hashlib.sha256",
+            "hexdigest"
+          ]
+        },
+        {
+          "name": "source_files",
+          "kind": "function",
+          "line_start": 16,
+          "line_end": 25,
+          "signature": "source_files()",
+          "returns": null,
+          "doc": null,
+          "calls": [
+            "any",
+            "base.exists",
+            "base.rglob",
+            "paths.extend",
+            "set",
+            "sorted"
+          ]
+        },
+        {
+          "name": "manifest_files",
+          "kind": "function",
+          "line_start": 27,
+          "line_end": 43,
+          "signature": "manifest_files()",
+          "returns": null,
+          "doc": null,
+          "calls": [
+            "ROOT.glob",
+            "p.is_file",
+            "paths.append",
+            "paths.extend",
+            "set",
+            "sorted",
+            "source_files"
+          ]
+        },
+        {
+          "name": "imports_for",
+          "kind": "function",
+          "line_start": 45,
+          "line_end": 52,
+          "signature": "imports_for(tree)",
+          "returns": null,
+          "doc": null,
+          "calls": [
+            "ast.walk",
+            "isinstance",
+            "result.append",
+            "result.extend",
+            "set",
+            "sorted"
+          ]
+        },
+        {
+          "name": "calls_for",
+          "kind": "function",
+          "line_start": 54,
+          "line_end": 71,
+          "signature": "calls_for(node)",
+          "returns": null,
+          "doc": null,
+          "calls": [
+            "ast.walk",
+            "calls.add",
+            "isinstance",
+            "join",
+            "parts.append",
+            "reversed",
+            "set",
+            "sorted"
+          ]
+        },
+        {
+          "name": "describe_node",
+          "kind": "function",
+          "line_start": 73,
+          "line_end": 105,
+          "signature": "describe_node(node, parent=None)",
+          "returns": null,
+          "doc": null,
+          "calls": [
+            "ast.get_docstring",
+            "ast.unparse",
+            "calls_for",
+            "describe_node",
+            "doc.splitlines",
+            "getattr",
+            "isinstance"
+          ]
+        },
+        {
+          "name": "main",
+          "kind": "function",
+          "line_start": 107,
+          "line_end": 172,
+          "signature": "main()",
+          "returns": null,
+          "doc": null,
+          "calls": [
+            "MANIFEST.relative_to",
+            "MANIFEST.write_text",
+            "OUTPUT.parent.mkdir",
+            "OUTPUT.relative_to",
+            "OUTPUT.write_text",
+            "SystemExit",
+            "as_posix",
+            "ast.parse",
+            "describe_node",
+            "imports_for",
+            "indexed.append",
+            "json.dumps",
+            "len",
+            "manifest.append",
+            "manifest_files",
+            "path.read_bytes",
+            "path.relative_to",
+            "print",
+            "s.get",
+            "sha256",
+            "source_files",
+            "sum"
+          ]
+        }
+      ]
+    }
+  ]
+}
